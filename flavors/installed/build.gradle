@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.application'
+apply from: "${rootProject.projectDir}/flavors.gradle"
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -39,18 +40,7 @@ android {
         debug {}
     }
 
-    flavorDimensions "pricing"
-
-    productFlavors {
-        free {
-            dimension "pricing"
-            applicationIdSuffix = '.free'
-        }
-        paid {
-            dimension "pricing"
-            applicationIdSuffix = '.paid'
-        }
-    }
+    with flavorConfig
 }
 
 dependencies {

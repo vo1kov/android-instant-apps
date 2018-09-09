@@ -15,6 +15,7 @@
  */
 
 apply plugin: 'com.android.instantapp'
+apply from: "${rootProject.projectDir}/flavors.gradle"
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -26,16 +27,7 @@ android {
         debug {}
     }
 
-    flavorDimensions "pricing"
-
-    productFlavors {
-        free {
-            dimension "pricing"
-        }
-        paid {
-            dimension "pricing"
-        }
-    }
+    with flavorConfig
 }
 
 dependencies {
